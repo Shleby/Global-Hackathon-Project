@@ -1,30 +1,30 @@
-import React from "react";
-import "./Navbar.scss";
-import Logo from "../Images/logo.png";
-import { Flex, FlexItem, FlexModifiers } from "@patternfly/react-core";
-import SettingsIcon from "@material-ui/icons/Settings";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import React from 'react';
+import './Navbar.scss';
+import { Flex, FlexItem, FlexModifiers } from '@patternfly/react-core';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Logo from '../Images/logo.png';
 
 export const Navbar: React.FC = () => {
   return (
-    <Flex className="navbar-container">
+    <Flex className='navbar-container'>
       <FlexItem>
-        <img src={Logo} alt="Ping-Logo" className="nav-logo" />
+        <img src={ Logo } alt='Ping-Logo' className='nav-logo' />
       </FlexItem>
       <FlexItem>
-        <a href="/" className="nav-title">
+        <a href='/' className='nav-title'>
           Ping
         </a>
       </FlexItem>
-      <FlexItem></FlexItem>
-      <FlexItem breakpointMods={[{ modifier: FlexModifiers["align-right"] }]}>
-        <div className="nav-icons">
+      <FlexItem />
+      <FlexItem breakpointMods={ [{ modifier: FlexModifiers['align-right'] }] }>
+        <div className='nav-icons'>
           <SettingsIcon />
         </div>
       </FlexItem>
 
       <FlexItem>
-        <div className="nav-icons">
+        <div className='nav-icons'>
           <AccountCircleIcon />
         </div>
       </FlexItem>
