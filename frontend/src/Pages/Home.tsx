@@ -6,9 +6,10 @@ const StyledHome = styled.div`
 
   .container{
     margin: auto;
-    display: inline-block;
-    margin-top: 180px;
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
     h2 {
       color: ${props => props.theme.main};
