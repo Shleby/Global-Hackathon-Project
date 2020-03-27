@@ -16,9 +16,7 @@ export const Navbar: React.FC = () => {
           Ping
         </a>
       </FlexItem>
-      <FlexItem>
-        <Searchbar />
-      </FlexItem>
+      <FlexItem></FlexItem>
       <FlexItem breakpointMods={[{ modifier: FlexModifiers["align-right"] }]}>
         <div className="nav-icons">
           <SettingsIcon />

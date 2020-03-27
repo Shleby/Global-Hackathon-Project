@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const StyledLogin = styled.div`
     text-align: center;
@@ -18,12 +22,13 @@ const StyledLogin = styled.div`
         .options {
             position: relative;
             height: 20px;
+            margin-top: 10px;
             .rememberMe {
                 position: absolute;
                 left: 0;
                 top: 0;
-                label {
-                    margin-left: 5px;
+                .checkBox {
+                    margin-top: -12px;
                 }
             }
             .forgetPassword {
@@ -32,7 +37,19 @@ const StyledLogin = styled.div`
                 top: 0;
             }
         }
+        .button {
+            background: ${props => props.theme.green};
+            text-transform: none !important;
+            color: white !important;
+            margin: 10px 0;
+            padding: 5px 30px;
+        }
+        .input {
+            width: 300px;
+            margin: 8px 0;
+        }
         .signUp {
+            font-size: .9em;
             margin-top: 10px;
             .link {
                 display: inline-block;
@@ -45,36 +62,44 @@ const StyledLogin = styled.div`
     }
 `;
 
-const Field = styled.input`
-    width: 300px;
-    margin: 5px 0;
-`;
-
-const Button = styled.button`
-    margin-top: 10px;
-`;
-
 export const Login: React.FC = () => {
     return (
         <StyledLogin>
             <div className="container">
                 <h1>Sign In</h1>
-                <Field />
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Username"
+                    variant="outlined"
+                    className="input"
+                />
                 <br />
-                <Field />
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Password"
+                    variant="outlined"
+                    className="input"
+                />
                 <div className="options">
                     <div className="rememberMe">
-                        <input type="checkbox" name="vehicle1" />
-                        <label htmlFor="vehicle1">Remember me</label>
+                        <FormControlLabel
+                            control={<Checkbox name="rememberMe" color="primary" />}
+                            className="checkBox"
+                            label="Remember me"
+                        />
                     </div>
                     <div className="forgetPassword">
                         <p>Forget password?</p>
                     </div>
                 </div>
-                <Button>Sign In</Button>
+                <Button className="button" variant="contained">Sign In</Button>
                 <div className="signUp">
                     <p>New here?</p>
-                    <Link className="link" to="/signup">Sign Up</Link>
+                    <Link className="link" to="/signup">
+                        Sign Up
+                    </Link>
                 </div>
             </div>
         </StyledLogin>

@@ -1,27 +1,41 @@
 import React from "react";
 import styled from 'styled-components';
 
-const Title = styled.div`
-  color: #3D3F70;
-  font-size: 64px;
-  font-weight: bold;
-
-  background:transparent;
+const StyledHome = styled.div`
   text-align:center;
-`
 
-const SubTitle = styled.div`
-  color: #1D1D1D;
-  font-size: 24px;
-  
-  text-align:center;
+  .container{
+    margin: auto;
+    display: inline-block;
+    margin-top: 180px;
+    position: relative;
+    
+    h2 {
+      color: ${props => props.theme.main};
+      font-size: 50px;
+      background:transparent;
+      margin-bottom: 10px;
+    }
+    .p{
+      color: ${props => props.theme.black};
+      font-size: 24px;
+    }
+  }
 `
 
 export const Home: React.FC = () => {
   return (
     <div>
-      <Title>Inventory Ping</Title>
-      <SubTitle>Search for much needed local items in your area.</SubTitle>
+      <StyledHome>
+        <div className="container">
+          <h2>
+            Inventory Ping
+          </h2>
+          <p>
+            Search for much needed items in your local items in your area.
+          </p>
+        </div>
+      </StyledHome>
     </div>
   );
 };
