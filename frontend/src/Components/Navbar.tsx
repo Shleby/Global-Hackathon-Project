@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
 import Logo from "../Images/logo.png";
-import { Flex, FlexItem } from "@patternfly/react-core";
+import { Flex, FlexItem, FlexModifiers } from "@patternfly/react-core";
 import SettingsIcon from "@material-ui/icons/Settings";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
@@ -17,12 +17,16 @@ export const Navbar: React.FC = () => {
         </a>
       </FlexItem>
       <FlexItem>
-        <div style={{ float: "right" }}>
+        <Searchbar />
+      </FlexItem>
+      <FlexItem breakpointMods={[{ modifier: FlexModifiers["align-right"] }]}>
+        <div className="nav-icons">
           <SettingsIcon />
         </div>
       </FlexItem>
+
       <FlexItem>
-        <div style={{ float: "right" }}>
+        <div className="nav-icons">
           <AccountCircleIcon />
         </div>
       </FlexItem>
