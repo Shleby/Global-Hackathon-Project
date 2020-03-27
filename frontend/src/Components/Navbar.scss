@@ -1,0 +1,17 @@
+.navbar-container {
+  height: 6vh;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  display: flex;
+  flex-direction: row;
+}
+.nav-logo {
+  height: 6vh;
+}
+.nav-title {
+  color: #3d3f70;
+  margin: 0;
+  text-decoration: none;
+  font-size: 6vh;
+}
