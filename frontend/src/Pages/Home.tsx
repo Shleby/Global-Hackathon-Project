@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import { SearchBar } from "../Components/SearchBar"
-import {Navbar} from "../Components/Navbar"
+import { SearchBar } from '../Components/SearchBar'
+import { Navbar } from '../Components/Navbar'
 
 const StyledHome = styled.div`
   text-align:center;
@@ -14,29 +14,29 @@ const StyledHome = styled.div`
     transform: translate(-50%, -50%);
     
     h2 {
-      color: ${props => props.theme.main};
+      color: ${(props) => props.theme.main};
       font-size: 64px;
       background:transparent;
       margin-bottom: 10px;
     }
     .subtitle{
-      color: ${props => props.theme.black};
+      color: ${(props) => props.theme.black};
       font-size: 20px;
       margin-bottom: 50px;
     }
   }
 `
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div>
-      <Navbar mainPage={true}/>
+      <Navbar mainPage />
       <StyledHome>
-        <div className="container">
+        <div className='container'>
           <h2>
             Inventory Ping
           </h2>
-          <div className="subtitle">
+          <div className='subtitle'>
             Search for much needed items in your local items in your area.
           </div>
           <SearchBar />
@@ -45,3 +45,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export default Home;
