@@ -1,10 +1,8 @@
 .navbar-container {
   height: 6vh;
   width: 100%;
-  border-bottom-style: solid;
-  border-bottom-width: thin;
+  background-color: white;
   display: flex;
-  background-color: rgb(194, 194, 194);
 }
 
 .nav-logo {
@@ -16,8 +14,12 @@
   margin: 0;
   text-decoration: none;
   font-size: 6vh;
+  font-weight: lighter;
 }
 
 .nav-icons {
   height: 6vh;
+}
+.nav-link {
+  right: 0;
 }
