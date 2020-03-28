@@ -10,6 +10,7 @@ const theme = {
   black: '#1D1D1D',
   green: '#32a852',
   main: '#3D3F70',
+  grey: "#A1A1A1",
 };
 
 ReactDOM.render(
