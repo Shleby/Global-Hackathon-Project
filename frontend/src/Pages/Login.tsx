@@ -73,6 +73,7 @@ const Login: React.FC = () => {
           label='Username'
           variant='outlined'
           className='input'
+          autoComplete='email'
         />
         <br />
         <TextField
@@ -81,6 +82,8 @@ const Login: React.FC = () => {
           label='Password'
           variant='outlined'
           className='input'
+          type='password'
+          autoComplete='password'
         />
         <div className='options'>
           <div className='rememberMe'>
