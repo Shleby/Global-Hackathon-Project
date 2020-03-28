@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import { Home } from './Pages/Home';
 import Login from './Pages/Login';
-import Search from './Pages/Search';
+import {Search} from './Pages/Search';
 import SignUp from './Pages/SignUp';
 
 

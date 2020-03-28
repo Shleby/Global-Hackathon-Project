@@ -16,29 +16,19 @@ const StyledSearchBar = styled.div`
         font-size: 20px
     }
 `
-interface PagepProps {
-    mainPage: boolean,
-}
-
-
 function handleSearch(event: React.KeyboardEvent<HTMLInputElement>){
     if(event.keyCode===13){
         console.log("Enter was pressed");
     }
 }
 
-export const SearchBar: React.FC<PagepProps> = ({mainPage}) =>{
+export const SearchBar: React.FC = ({}) =>{
 
     return(
-        mainPage ?
-        (
-            <StyledSearchBar>
-                <input type="text" name="SearchBar" onKeyDown={handleSearch}/> 
-            </StyledSearchBar>
-        ):(
-            <div></div>
-        )
-
+        
+        <StyledSearchBar>
+            <input type="text" name="SearchBar" onKeyDown={handleSearch}/> 
+        </StyledSearchBar>
     );
 }
 

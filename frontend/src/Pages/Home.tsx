@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { SearchBar } from "../Components/SearchBar"
+import {Navbar} from "../Components/Navbar"
 
 const StyledHome = styled.div`
   text-align:center;
@@ -29,6 +30,7 @@ const StyledHome = styled.div`
 export const Home: React.FC = () => {
   return (
     <div>
+      <Navbar mainPage={true}/>
       <StyledHome>
         <div className="container">
           <h2>
@@ -37,7 +39,7 @@ export const Home: React.FC = () => {
           <div className="subtitle">
             Search for much needed items in your local items in your area.
           </div>
-          <SearchBar mainPage={true} />
+          <SearchBar />
         </div>
       </StyledHome>
     </div>
