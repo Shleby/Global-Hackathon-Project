@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from '../Components/Navbar';
+import Navbar from '../Components/Navbar';
 
-export const Search: React.FC = () => {
+export default function Search() {
   return <Navbar />;
-};
+}

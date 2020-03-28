@@ -62,7 +62,7 @@ const StyledLogin = styled.div`
     }
 `;
 
-export const Login: React.FC = () => {
+const Login: React.FC = () => {
   return (
     <StyledLogin>
       <div className='container'>
@@ -105,3 +105,5 @@ export const Login: React.FC = () => {
     </StyledLogin>
   );
 };
+
+export default Login;

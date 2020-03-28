@@ -5,7 +5,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from '../Images/logo.png';
 
-export const Navbar: React.FC = () => {
+export default function Navbar() {
   return (
     <Flex className='navbar-container'>
       <FlexItem>
@@ -31,3 +31,4 @@ export const Navbar: React.FC = () => {
     </Flex>
   );
 };
+
