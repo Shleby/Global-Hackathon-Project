@@ -1,6 +1,5 @@
 import React from "react"
 import styled from 'styled-components'
-import { KeyObject } from "crypto";
 
 const StyledSearchBar = styled.div`
     border-style: solid;
@@ -17,7 +16,9 @@ const StyledSearchBar = styled.div`
         font-size: 20px
     }
 `
-
+interface PagepProps {
+    mainPage: boolean,
+}
 
 
 function handleSearch(event: React.KeyboardEvent<HTMLInputElement>){
@@ -26,13 +27,18 @@ function handleSearch(event: React.KeyboardEvent<HTMLInputElement>){
     }
 }
 
-
-export const SearchBar: React.FC = () =>{
+export const SearchBar: React.FC<PagepProps> = ({mainPage}) =>{
 
     return(
-        <StyledSearchBar>
-           <input type="text" name="SearchBar" onKeyDown={handleSearch}/>
-        </StyledSearchBar>
+        mainPage ?
+        (
+            <StyledSearchBar>
+                <input type="text" name="SearchBar" onKeyDown={handleSearch}/> 
+            </StyledSearchBar>
+        ):(
+            <div></div>
+        )
+
     );
 }
 

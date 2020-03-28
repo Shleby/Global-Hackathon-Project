@@ -37,7 +37,7 @@ export const Home: React.FC = () => {
           <div className="subtitle">
             Search for much needed items in your local items in your area.
           </div>
-          <SearchBar />
+          <SearchBar mainPage={true} />
         </div>
       </StyledHome>
     </div>
