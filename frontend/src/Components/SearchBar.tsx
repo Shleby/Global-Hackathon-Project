@@ -1,11 +1,12 @@
 import React from "react"
 import styled from 'styled-components'
+import { KeyObject } from "crypto";
 
 const StyledSearchBar = styled.div`
     border-style: solid;
     border-radius: 10px;
     width: 700px;
-    height: 20px;
+    height: 25px;
     border-width: 1px;
     padding: 10px;
     input{
@@ -15,17 +16,23 @@ const StyledSearchBar = styled.div`
         border-radius: 10px;
         font-size: 20px
     }
-
 `
 
-interface KeyboardEvent {
-    enterKey: boolean;
+
+
+function handleSearch(event: React.KeyboardEvent<HTMLInputElement>){
+    if(event.keyCode===13){
+        console.log("Enter was pressed");
+    }
 }
 
+
 export const SearchBar: React.FC = () =>{
+
     return(
         <StyledSearchBar>
-           <input type="text" name="SearchBar"/>
+           <input type="text" name="SearchBar" onKeyDown={handleSearch}/>
         </StyledSearchBar>
     );
 }
+
