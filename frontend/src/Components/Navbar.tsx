@@ -5,7 +5,7 @@ import './Navbar.scss';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import { Flex, FlexItem, FlexModifiers } from '@patternfly/react-core';
 import Logo from '../Images/logo.png';
-import Search from '../Pages/Search';
+import SearchBar from '../Pages/Search';
 
 interface PageProps {
   mainPage: boolean;
@@ -23,7 +23,10 @@ export default function Navbar() {
             <h2 className='nav-title'>Ping</h2>
           </FlexItem>
           <FlexItem>
-            <Search />
+            <SearchBar
+              query=''
+              onSearch={ (query) => {} }
+            />
           </FlexItem>
           <FlexItem
             breakpointMods={ [{ modifier: FlexModifiers['align-right'] }] }
