@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Navbar } from '../Components/Navbar';
+import Navbar from '../Components/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,7 +41,7 @@ export default function SignUp() {
   const classes = useStyles();
   return (
     <div>
-      <Navbar mainPage={ false } />
+      <Navbar  />
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className='container'>
