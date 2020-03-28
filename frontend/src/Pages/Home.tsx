@@ -27,7 +27,7 @@ const StyledHome = styled.div`
   }
 `;
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <Navbar mainPage={true} />
@@ -42,3 +42,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export default Home;
