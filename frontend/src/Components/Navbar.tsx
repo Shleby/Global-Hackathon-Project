@@ -1,37 +1,39 @@
-import React from "react";
-import "./Navbar.scss";
-import SearchIcon from "@material-ui/icons/Search";
+import React from 'react';
+import './Navbar.scss';
 
-import Logo from "../Images/logo.png";
-import { AppBar, Toolbar, Button } from "@material-ui/core";
-import { Flex, FlexItem, FlexModifiers } from "@patternfly/react-core";
+
+import { AppBar, Toolbar, Button } from '@material-ui/core';
+import { Flex, FlexItem, FlexModifiers } from '@patternfly/react-core';
+import Logo from '../Images/logo.png';
+import Search from '../Pages/Search';
+
 interface PageProps {
   mainPage: boolean;
 }
 
-export const Navbar: React.FC<PageProps> = mainPage => {
+export default function Navbar() {
   return (
-    <AppBar position="static" color="inherit" className="navbar-container">
+    <AppBar position='static' color='inherit' className='navbar-container'>
       <Toolbar>
         <Flex>
           <FlexItem>
-            <img src={Logo} alt="logo" className="nav-logo" />
+            <img src={ Logo } alt='logo' className='nav-logo' />
           </FlexItem>
           <FlexItem>
-            <h2 className="nav-title">Ping</h2>
+            <h2 className='nav-title'>Ping</h2>
           </FlexItem>
           <FlexItem>
-            <SearchIcon />
+            <Search />
           </FlexItem>
           <FlexItem
-            breakpointMods={[{ modifier: FlexModifiers["align-right"] }]}
+            breakpointMods={ [{ modifier: FlexModifiers['align-right'] }] }
           >
-            <Button color="inherit" className="nav-link">
+            <Button color='inherit' className='nav-link butt'>
               Settings
             </Button>
           </FlexItem>
           <FlexItem>
-            <Button color="inherit" className="nav-link">
+            <Button color='inherit' className='nav-link butt'>
               Login
             </Button>
           </FlexItem>
@@ -39,4 +41,4 @@ export const Navbar: React.FC<PageProps> = mainPage => {
       </Toolbar>
     </AppBar>
   );
-};
+}

@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Navbar from "../Components/Navbar";
 
 const StyledLogin = styled.div`
     text-align: center;
@@ -65,6 +66,7 @@ const StyledLogin = styled.div`
 const Login: React.FC = () => {
   return (
     <StyledLogin>
+      <Navbar/>
       <div className='container'>
         <h1>Sign In</h1>
         <TextField

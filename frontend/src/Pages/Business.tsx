@@ -3,14 +3,22 @@ import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-import { Navbar } from '../Components/Navbar';
+import Navbar from '../Components/Navbar';
 
 export default function Business() {
   const columnDefs = [
-    { headerName: 'Name', field: 'name', sortable: true, filter: true, },
-    { headerName: 'Brand', field: 'brand', sortable: true, filter: true },
-    { headerName: 'Quantity', field: 'quantity', sortable: true, filter: true },
-    { headerName: 'Price', field: 'price', sortable: true, filter: true },
+    {
+      headerName: 'Name', field: 'name', sortable: true, filter: true,
+    },
+    {
+      headerName: 'Brand', field: 'brand', sortable: true, filter: true,
+    },
+    {
+      headerName: 'Quantity', field: 'quantity', sortable: true, filter: true,
+    },
+    {
+      headerName: 'Price', field: 'price', sortable: true, filter: true,
+    },
   ];
 
   const mockRowData = [{
@@ -22,7 +30,8 @@ export default function Business() {
 
 
   return (
-    <div><Navbar mainPage={ false } />
+    <div>
+      <Navbar/>
       <div
         className='ag-theme-balham'
         style={{
