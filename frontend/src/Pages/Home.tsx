@@ -2,23 +2,34 @@ import React, { useState, useEffect } from "react";
 import { Card } from "@patternfly/react-core";
 import Navbar from "../Components/Navbar";
 import { Bullseye } from "@patternfly/react-core";
-import { Button } from "@material-ui/core";
+import { Button, Icon } from "@material-ui/core";
 import Logo from "../Components/rotateLogo.png";
 import { GoogleMap, withGoogleMap, withScriptjs } from "react-google-maps";
+import { usePosition } from "use-position";
 
 export const googleMapURL =
   "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDauq45knJZC8oDuNaCGGped73aHbGwelg";
 
 export const Home: React.FC = () => {
-  const someLatLng = { lat: 55.751244, lng: 37.618423 };
+  const { latitude, longitude, timestamp, accuracy } = usePosition(true);
+  const someLatLng = { lat: latitude, lng: longitude };
 
+  const CurrentPin = () => {
+    return <img src={Logo} alt="" style={{ height: "5vh" }} />;
+  };
+  const iconStyle = {
+    borderRadius: "100px",
+    boxShadow: "3px 3px 1px #888888"
+  };
   const MyGoogleMap: any = withScriptjs(
     withGoogleMap(() => (
       <GoogleMap
         defaultCenter={someLatLng}
         defaultZoom={16}
         options={{ disableDefaultUI: true }}
-      ></GoogleMap>
+      >
+        <CurrentPin />
+      </GoogleMap>
     ))
   );
   const loadingElement: any = <div />;
@@ -30,7 +41,7 @@ export const Home: React.FC = () => {
       containerElement={containerElement}
       googleMapURL={googleMapURL}
       mapElement={mapElement}
-    />
+    ></MyGoogleMap>
   );
   const [enter, setEnter] = useState();
   const [query, setQuery] = useState("");
@@ -120,7 +131,7 @@ export const Home: React.FC = () => {
       </div>
       <Card
         style={{
-          backgroundColor: "wheat",
+          backgroundColor: "#c7cbd1",
           height: "50vh",
           marginLeft: "30px",
           width: "20%"

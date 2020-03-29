@@ -25,6 +25,14 @@
   font-weight: lighter;
 }
 
-.nav-icons {
-  height: 6vh;
+.nav-account {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 1vh;
+}
+
+.nav-account h1:hover {
+  color: "#3d3f70";
 }
