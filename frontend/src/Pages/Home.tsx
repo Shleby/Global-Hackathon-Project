@@ -1,16 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { Grid, GridItem, Card } from "@patternfly/react-core";
+import { Card } from "@patternfly/react-core";
 import Navbar from "../Components/Navbar";
-import SearchIcon from "@material-ui/icons/Search";
 import { Bullseye } from "@patternfly/react-core";
 import { Button } from "@material-ui/core";
-import { geolocated } from "react-geolocated";
+import Logo from "../Components/rotateLogo.png";
+import { GoogleMap, withGoogleMap, withScriptjs } from "react-google-maps";
 
-interface GeoProps {
-  label: string;
-}
+export const googleMapURL =
+  "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDauq45knJZC8oDuNaCGGped73aHbGwelg";
 
-const Home: React.FC = GeoProps => {
+export const Home: React.FC = () => {
+  const someLatLng = { lat: 55.751244, lng: 37.618423 };
+
+  const MyGoogleMap: any = withScriptjs(
+    withGoogleMap(() => (
+      <GoogleMap
+        defaultCenter={someLatLng}
+        defaultZoom={16}
+        options={{ disableDefaultUI: true }}
+      ></GoogleMap>
+    ))
+  );
+  const loadingElement: any = <div />;
+  const containerElement: any = <div style={{ height: "50vh" }} />;
+  const mapElement = <div style={{ height: "50vh" }} />;
+  const map: any = (
+    <MyGoogleMap
+      loadingElement={loadingElement}
+      containerElement={containerElement}
+      googleMapURL={googleMapURL}
+      mapElement={mapElement}
+    />
+  );
   const [enter, setEnter] = useState();
   const [query, setQuery] = useState("");
   const [data, setData] = useState("");
@@ -35,10 +56,10 @@ const Home: React.FC = GeoProps => {
       .then(res => setData(res))
       .catch(() => setError(true));
   });
-  return 
+  return (
     <div style={{ height: "100vh", width: "100%" }}>
-      <Navbar />
-      {geolocated}
+      <Navbar correctScreen={false} />
+
       <h1
         style={{
           textAlign: "center",
@@ -86,16 +107,33 @@ const Home: React.FC = GeoProps => {
             />
             <Button>Go</Button>
           </form>
+          <img src={Logo} alt="" style={{ height: "10vh" }} />
         </Bullseye>
       </div>
-      <Grid>
-        <GridItem sm={2} md={2} lg={2} xl={2}>
-          <Card style={{ backgroundColor: "wheat", height: "87vh" }}>
-            <h2>Nearby Stores...</h2>
-          </Card>
-        </GridItem>
-        <GridItem sm={10} md={10} lg={10} xl={10}></GridItem>
-      </Grid>
+      <Card
+        style={{
+          backgroundColor: "wheat",
+          height: "50vh",
+          marginLeft: "30px",
+          width: "20%"
+        }}
+      >
+        <h2>Nearby Stores...</h2>
+      </Card>
+      <Card
+        style={{
+          height: "50vh",
+          width: "50%",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          margin: "0",
+          marginRight: "-50%",
+          transform: "translate(-50%, -50%)"
+        }}
+      >
+        {map}
+      </Card>
     </div>
   );
 };

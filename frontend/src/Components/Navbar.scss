@@ -2,6 +2,12 @@
   height: 6vh;
   width: 100%;
   background-color: white;
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-color: rgb(97, 97, 97);
+  border-style: solid;
 }
 
 .nav-logo {
@@ -18,10 +24,4 @@
 
 .nav-icons {
   height: 6vh;
-}
-.nav-link {
-}
-
-.butt {
-  float: right;
 }
