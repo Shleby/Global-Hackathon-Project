@@ -1044,7 +1044,10 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
-  name: String!
+  name: String
+  email: String
+  password: String
+  zipcode: String
   slackToken: String!
   darkMode: Boolean
 }

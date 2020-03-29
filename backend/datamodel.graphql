@@ -5,3 +5,19 @@ type User {
   password: String!
   zipcode: String!
 }
+
+type Item {
+  id: ID! @id
+  name: String!
+  location: String!
+  price: Float!
+  braind: String!
+  quantity: Int!
+}
+
+type Business {
+  id: ID! @id
+  name: String!
+  zipcode: String!
+  inventory: [Item!]
+}
