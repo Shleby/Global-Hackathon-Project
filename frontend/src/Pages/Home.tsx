@@ -105,7 +105,15 @@ export const Home: React.FC = () => {
               value={query}
               onChange={e => handleInputChange(e)}
             />
-            <Button>Go</Button>
+            <Button
+              style={{
+                borderRadius: "20px",
+                backgroundColor: "#3d3f70",
+                color: "white"
+              }}
+            >
+              Go
+            </Button>
           </form>
           <img src={Logo} alt="" style={{ height: "10vh" }} />
         </Bullseye>

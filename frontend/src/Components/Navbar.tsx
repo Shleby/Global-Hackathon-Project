@@ -22,50 +22,62 @@ export default function Navbar(props: { correctScreen: Boolean }) {
 
   if (showSearch) {
     return (
-      <Flex
-        className="navbar-container"
-        breakpointMods={[
-          { modifier: FlexModifiers["justify-content-space-between"] }
-        ]}
-      >
-        <FlexItem>
-          <Flex>
-            <FlexItem>
-              <h2 className="nav-title">Ping</h2>
-            </FlexItem>
-          </Flex>
-        </FlexItem>
-
-        <FlexItem>
-          <SearchBar query="" onSearch={query => {}} />
-        </FlexItem>
-        <FlexItem>
-          <Button color="inherit">Settings</Button>
-          <Button color="inherit">Login</Button>
-        </FlexItem>
-      </Flex>
+      <div className="navbar-container">
+        <a href="/" className="nav-title">
+          Ping
+        </a>
+        <SearchBar query="" onSearch={query => {}} />
+        <div>
+          <a
+            href="/settings"
+            style={{
+              marginLeft: "10px",
+              textDecoration: "none"
+            }}
+          >
+            Settings
+          </a>
+          <a
+            href="/login"
+            style={{
+              marginLeft: "10px",
+              textDecoration: "none",
+              marginRight: "10px"
+            }}
+          >
+            Login
+          </a>
+        </div>
+      </div>
     );
   } else {
     return (
-      <Flex
-        className="navbar-container"
-        breakpointMods={[
-          { modifier: FlexModifiers["justify-content-space-between"] }
-        ]}
-      >
-        <FlexItem>
-          <Flex>
-            <FlexItem>
-              <h2 className="nav-title">Ping</h2>
-            </FlexItem>
-          </Flex>
-        </FlexItem>
-
-        <FlexItem>
-          <Button color="inherit">Settings</Button>
-          <Button color="inherit">Login</Button>
-        </FlexItem>
-      </Flex>
+      <div className="navbar-container">
+        <a href="/" className="nav-title">
+          Ping
+        </a>
+        <div style={{ textAlign: "center" }}>
+          <a
+            href="/settings"
+            style={{
+              marginLeft: "10px",
+              textDecoration: "none"
+            }}
+          >
+            Settings
+          </a>
+          <a
+            href="/login"
+            style={{
+              marginLeft: "10px",
+              marginRight: "10px",
+              textDecoration: "none"
+            }}
+          >
+            Login
+          </a>
+        </div>
+      </div>
     );
   }
 }
