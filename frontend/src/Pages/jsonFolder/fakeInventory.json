@@ -1,0 +1,20 @@
+[
+  {
+    "name": "toilet paper",
+    "brand": "charmin",
+    "price": "3$",
+    "quantity": "55"
+  },
+  {
+    "name": "toilet",
+    "brand": "charmin",
+    "price": "40$",
+    "quantity": "100"
+  },
+  {
+    "name": "brush",
+    "brand": "calzone",
+    "price": "53$",
+    "quantity": "1"
+  }
+]

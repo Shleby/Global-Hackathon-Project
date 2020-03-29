@@ -1,117 +1,101 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import { Grid, GridItem, Card } from "@patternfly/react-core";
+import Navbar from "../Components/Navbar";
+import SearchIcon from "@material-ui/icons/Search";
+import { Bullseye } from "@patternfly/react-core";
+import { Button } from "@material-ui/core";
+import { geolocated } from "react-geolocated";
 
-import { Typography, TextField, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, GridItem } from "@patternfly/react-core";
+interface GeoProps {
+  label: string;
+}
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
-  },
-  submit: {
-    top: "15%",
-    left: "20px"
-  },
-  containerTitle: {
-    margin: "auto",
-    display: "inline-block",
-    "margin-top": "180px",
-    position: "relative",
-    color: "#3d3f70",
-    "font-weight": "bold"
+const Home: React.FC = GeoProps => {
+  const [enter, setEnter] = useState();
+  const [query, setQuery] = useState("");
+  const [data, setData] = useState("");
+  const [error, setError] = useState(false);
+  function handleInputChange(event: any) {
+    const que = event.target.value;
+    setQuery(que);
+    // this.setState(prevState => {
+    //   const filteredData = prevState.data.filter(element => {
+    //     return element.name.toLowerCase().includes(query.toLowerCase());
+    //   });
+
+    //   return {
+    //     query,
+    //     filteredData
+    //   };
+    // });
   }
-}));
+  useEffect(() => {
+    fetch("./jsonFolder/fakeInventory.json")
+      .then(res => res.json())
+      .then(res => setData(res))
+      .catch(() => setError(true));
+  });
+  return 
+    <div style={{ height: "100vh", width: "100%" }}>
+      <Navbar />
+      {geolocated}
+      <h1
+        style={{
+          textAlign: "center",
+          color: "#3d3f70",
+          fontSize: "63px",
+          marginTop: "2vh"
+        }}
+      >
+        Inventory Ping
+      </h1>
+      <div
+        style={{
+          height: "10vh"
+        }}
+      >
+        <Bullseye>
+          <form
+            style={{
+              borderStyle: "solid",
+              borderWidth: "2px",
+              borderColor: "black",
+              borderRadius: "20px"
+            }}
+          >
+            <input
+              style={{
+                color: "#3d3f70",
+                border: "none",
+                marginLeft: "5px"
+              }}
+              placeholder="Search for..."
+              value={query}
+              onChange={e => handleInputChange(e)}
+            />
 
-const StyledHome = styled.div`
-  text-align: center;
-
-  .container {
-    margin: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    hr {
-      width: 100%;
-    }
-    h2 {
-      color: ${props => props.theme.main};
-      font-size: 64px;
-      background: transparent;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      color: ${props => props.theme.black};
-      font-size: 20px;
-      margin-bottom: 50px;
-    }
-  }
-`;
-
-const Home: React.FC = () => {
-  return (
-    <div>
-      <StyledHome>
-        <div className="container">
-          <h2>Inventory Ping</h2>
-          <hr />
-          <form className={classes.form} noValidate>
-            <Grid>
-              <GridItem sm={12} md={12} lg={12} xl={12}>
-                <Typography variant="subtitle2">
-                  We need your Zip Code to get stores near you
-                </Typography>
-              </GridItem>
-              <GridItem sm={12} md={12} lg={12} xl={12}>
-                <TextField
-                  variant="outlined"
-                  name="Search..."
-                  label="Search..."
-                  type="search"
-                  id="search"
-                  autoComplete="search"
-                />
-
-                <TextField
-                  variant="outlined"
-                  name="zipCode"
-                  label="Zip Code"
-                  type="zipCode"
-                  id="zipCode"
-                  autoComplete="postal-code"
-                />
-
-                <p>Within ...</p>
-                <select id="miles">
-                  <option value="25">25 miles</option>
-                  <option value="50">50 miles</option>
-                  <option value="100">100 miles</option>
-                </select>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                >
-                  Go
-                </Button>
-              </GridItem>
-            </Grid>
+            <input
+              style={{
+                color: "#3d3f70",
+                border: "none",
+                marginLeft: "5px"
+              }}
+              placeholder="Zip code..."
+              value={query}
+              onChange={e => handleInputChange(e)}
+            />
+            <Button>Go</Button>
           </form>
-        </div>
-      </StyledHome>
+        </Bullseye>
+      </div>
+      <Grid>
+        <GridItem sm={2} md={2} lg={2} xl={2}>
+          <Card style={{ backgroundColor: "wheat", height: "87vh" }}>
+            <h2>Nearby Stores...</h2>
+          </Card>
+        </GridItem>
+        <GridItem sm={10} md={10} lg={10} xl={10}></GridItem>
+      </Grid>
     </div>
   );
 };
