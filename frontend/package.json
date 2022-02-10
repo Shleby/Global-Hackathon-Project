@@ -21,7 +21,7 @@
     "dom": "0.0.3",
     "eslint-plugin-promise": "^4.2.1",
     "google-maps-react": "^2.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-geolocated": "^3.0.1",
